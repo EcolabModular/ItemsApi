@@ -15,9 +15,12 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50);
+            $table->string('name', 100);
             $table->string('description', 1000);
-            $table->string('qrcode')->nullable();
+            $table->string('qrcode')->nullable()->default(null);
+            $table->string('imgItem')->nullable()->default(null);
+            $table->string('encryptedImgName')->nullable()->default(null);
+            $table->string('extensionImg')->nullable()->default(null);
             $table->integer('laboratory_id')->unsigned();
             $table->timestamps();
         });

@@ -14,8 +14,12 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
-        'name','description','qrcode','laboratory_id'
+        'name','description','qrcode','laboratory_id', 'imgItem', 'encryptedImgName','extensionImg',
     ];
 
+
+    protected $hidden = [
+        'encryptedImgName','extensionImg',
+    ];
 
 }

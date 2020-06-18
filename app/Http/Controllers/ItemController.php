@@ -69,7 +69,7 @@ class ItemController extends Controller
                     'laboratory_id'=> $request['laboratory_id'],
                 ]);
 
-                $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl={$this->baseUri}/itemschedulary/{$item->id}&choe=UTF-8";
+                $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl=".$item->id."&choe=UTF-8";
 
                 $item->save();
 
@@ -81,7 +81,7 @@ class ItemController extends Controller
 
         $item = Item::create($request->all());
 
-        $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl={$this->baseUri}/itemschedulary/{$item->id}&choe=UTF-8";
+        $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl=".$item->id."&choe=UTF-8";
         $item->imgItem = url('/') . '/itemsphotos/itemdefault.png';
 
         $item->save();
@@ -151,7 +151,7 @@ class ItemController extends Controller
             return $this->errorResponse('At least one value must change',Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl={$this->baseUri}/itemschedulary/{$item->id}&choe=UTF-8";
+        $item->qrcode = "https://chart.googleapis.com/chart?cht=qr&chs=150&chl=".$item->id."&choe=UTF-8";
 
         $item->save();
 
